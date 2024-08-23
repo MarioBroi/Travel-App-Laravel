@@ -13,6 +13,13 @@ return new class extends Migration
     {
         Schema::create('places', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('trip_id')->constrained()->onDelete('cascade');
+            $table->string('title');
+            $table->text('description')->nullable();
+            $table->string('image')->nullable();
+            $table->text('notes')->nullable();
+            $table->unsignedTinyInteger('rating')->nullable();
+            $table->boolean('is_completed')->default(false);
             $table->timestamps();
         });
     }
