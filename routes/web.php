@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\TripController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -28,4 +29,10 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-require __DIR__.'/auth.php';
+Route::get('/trips', [TripController::class, 'index']);
+Route::post('/trips', [TripController::class, 'store']);
+Route::get('/trips/{id}', [TripController::class, 'show']);
+Route::put('/trips/{id}', [TripController::class, 'update']);
+Route::delete('/trips/{id}', [TripController::class, 'destroy']);
+
+require __DIR__ . '/auth.php';

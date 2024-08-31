@@ -9,7 +9,7 @@ class Trip extends Model
 {
     use HasFactory;
 
-    protected $fillable = ["title", "desciption", "start_date", "end_date"];
+    protected $fillable = ["title", "description", "start_date", "end_date"];
 
     public function places()
     {
